@@ -29,6 +29,21 @@ class Stream(Record):
                     await RisingEdge(self.clk)
             self.valid <= 0
 
+        async def send_inv(self, data, n, m):
+            ### This method helps to demonstrate what happens with the output when the input is invalid.
+            count = 1
+            for d in data:
+                self.data <= d
+                if (n < count and count < m):
+                    self.valid <= 0
+                else:
+                    self.valid <= 1
+                await RisingEdge(self.clk)
+                while self.ready.value == 0:
+                    await RisingEdge(self.clk)
+                count += 1
+            self.valid <= 0
+
         async def recv(self, count):
             self.ready <= 1
             data = []
@@ -43,9 +58,9 @@ class Stream(Record):
 
 class Adder(Elaboratable):
     def __init__(self, width):
-        self.a = Stream(width, name='a')  # first input
-        self.b = Stream(width, name='b')  # second imput
-        self.r = Stream(width, name='r')  # result
+        self.a = Stream(width, name='a')
+        self.b = Stream(width, name='b')
+        self.r = Stream(width, name='r')
 
     def elaborate(self, platform):
         m = Module()
