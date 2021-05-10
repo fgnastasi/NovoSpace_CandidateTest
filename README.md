@@ -1,3 +1,13 @@
+# Entrega de ejercicios
+
+Se realizó un fork del repositorio y se crearon 2 carpetas llamadas ej1\_entrega y ej2\_entrega. En ej1\_entrega se encuentra el archivo adder.py que tiene la descipción del sumador. Los test se pasaron a otros archivos: rand\_num\_.py y edge\_cases\_t.py..
+Para generar los archivos .vcd ejecutar:
+python rand\_num\_.py
+python edge\_cases\_t.py
+
+En la carpeta ej2\_entrega se encuentra el archivo modifySyntax.py y se solamente se debe ejecutar python modifySyntax.py ya que no se llegó a implementar el ingreso de parámetros para los nombres de los archivos. 
+
+
 # Candidate test!
 
 Bienvenidos a esta etapa de evaluación para formar parte del equipo de Novo Space.

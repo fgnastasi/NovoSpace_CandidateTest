@@ -16,7 +16,7 @@ def create_mem_file(mem_data, mem_filename):
             mem_f.write(mem_re.search(line).group(1) + '\n')
 
 
-def main(inv_synt_filename, val_synt_filename, mem_filename, re=None):
+def main(inv_synt_filename, val_synt_filename, mem_filename, re):
     ### Replaces verilog file with invalid syntax for another file with the correct(valid) syntax and creates a memory file with initialization values
     ###
     ### Inputs
@@ -44,7 +44,7 @@ def main(inv_synt_filename, val_synt_filename, mem_filename, re=None):
 
 if __name__ == '__main__':
 
-    # TO DO: add argument functionality to script for the following variables
+    # TO DO: add argument management to script for the following variables
     inv_synt_filename = 'testcase.v'
     val_synt_filename = 'expected.v'
     mem_filename = "memdump.mem"
